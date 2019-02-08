@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 export class TodoItem extends Component {
-  getStyle = () => {
+  getCompStyle = () => {
     return {
       background: '#f4f4f4',
       padding: '10px',
@@ -11,14 +11,27 @@ export class TodoItem extends Component {
     }
   }
 
+  getBtnStyle = () => {
+    return {
+      background: '#ff0000',
+      color: '#fff',
+      border: 'none',
+      padding: '5px 9px',
+      borderRadius: '50%',
+      cursor: 'pointer',
+      float: 'right'
+    }
+  }
+
   render() {
     const { id, title } = this.props.todo;
 
     return (
-      <div style={this.getStyle()}>
+      <div style={this.getCompStyle()}>
         <p>
           <input type="checkbox" onChange={this.props.markComplete.bind(this, id)} /> {' '}
           {title}
+          <button onClick={this.props.delTodo.bind(this, id)} style={this.getBtnStyle()}>x</button>
         </p>
       </div>
     )
