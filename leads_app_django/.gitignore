@@ -1,3 +1,6 @@
+#Custom
+frontend/static/frontend/main.js
+
 # Django stuff:
 *.log
 local_settings.py
