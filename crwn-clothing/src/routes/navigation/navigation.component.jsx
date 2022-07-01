@@ -1,25 +1,34 @@
+import { useContext } from "react";
 import { Outlet, Link } from "react-router-dom";
 import "./navigation.styles.scss";
 
 import { ReactComponent as CrwnLogo } from "../../assets/crown.svg";
 
-const Navigation = () => (
-  <>
-    <div className="navigation">
-      <Link className="logo-container" to="/">
-        <CrwnLogo className="logo" />
-      </Link>
-      <div className="nav-links-container">
-        <Link className="nav-link" to="/shop">
-          SHOP
+import { UserContext } from "../../contexts/user.context";
+
+const Navigation = () => {
+  const { currentUser } = useContext(UserContext);
+
+  console.log(currentUser);
+
+  return (
+    <>
+      <div className="navigation">
+        <Link className="logo-container" to="/">
+          <CrwnLogo className="logo" />
         </Link>
-        <Link className="nav-link" to="/auth">
-          SIGN IN
-        </Link>
+        <div className="nav-links-container">
+          <Link className="nav-link" to="/shop">
+            SHOP
+          </Link>
+          <Link className="nav-link" to="/auth">
+            SIGN IN
+          </Link>
+        </div>
       </div>
-    </div>
-    <Outlet />
-  </>
-);
+      <Outlet />
+    </>
+  );
+};
 
 export default Navigation;
