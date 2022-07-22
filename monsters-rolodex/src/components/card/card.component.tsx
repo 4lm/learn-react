@@ -1,8 +1,14 @@
-import { Component } from "react";
+//import { Component } from "react";
+
+import { Monster } from "../../App";
 
 import "./card.styles.css";
 
-const Card = ({ id, name, email, alt }) => {
+interface ICardProps extends Monster {
+  alt: string;
+}
+
+const Card = ({ id, name, email, alt }: ICardProps) => {
   return (
     <div className="card-container" key={id}>
       <img
@@ -15,6 +21,7 @@ const Card = ({ id, name, email, alt }) => {
   );
 };
 
+/*
 export class CardByClass extends Component {
   render() {
     const { id, name, email, alt } = this.props;
@@ -31,5 +38,6 @@ export class CardByClass extends Component {
     );
   }
 }
+*/
 
 export default Card;
